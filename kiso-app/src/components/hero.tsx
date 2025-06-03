@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -20,13 +21,13 @@ export default function Hero() {
           Learn More...
         </Link>
       </div>
-      <div className="flex-1 order-1 md:order-2">
-        <img
-          src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
-          alt="placeholder"
-          className="rounded-lg shadow-lg w-full max-w-md"
-        />
-      </div>
+      <Image
+        src="/images/hero3.jpg"
+        alt="placeholder"
+        className="flex-1 rounded-lg shadow-lg w-full max-w-2xl order-1 md:order-2"
+        width={400}
+        height={300}
+      />
     </div>
   );
 }
