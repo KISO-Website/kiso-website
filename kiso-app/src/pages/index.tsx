@@ -13,9 +13,6 @@ const loremArray = [
 ];
 
 export default function Home() {
-<<<<<<< HEAD
-  return;
-=======
   const [toggle, setToggle] = useState(false);
   return (
     <>
@@ -27,5 +24,4 @@ export default function Home() {
       <Hero />
     </>
   );
->>>>>>> feat/hero
 }
