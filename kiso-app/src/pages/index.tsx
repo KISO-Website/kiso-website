@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
-import ToggleButton from "@/components/toggleButton";
+import ProfileIcon from "@/components/ProfileIcon";
+import ToggleButton from "@/components/ToggleButton";
 import { useState } from "react";
 
 const loremArray = [
@@ -12,6 +13,12 @@ const loremArray = [
   "June 9: Kiso App Partners with Local Businesses Discover Exclusive Offers!",
 ];
 
+const user ={
+  img: "/images/hero3.jpg",
+  name: "John Doe",
+  role: "Software Engineer",
+};
+
 export default function Home() {
   const [toggle, setToggle] = useState(false);
   return (
@@ -22,6 +29,7 @@ export default function Home() {
         onToggle={() => setToggle((prev) => !prev)}
       />
       <Hero />
+      <ProfileIcon user={user}/>
     </>
   );
 }
