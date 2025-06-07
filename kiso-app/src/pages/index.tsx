@@ -1,7 +1,10 @@
+'use client';
+
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import ProfileIcon from "@/components/ProfileIcon";
 import ToggleButton from "@/components/ToggleButton";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 
 const loremArray = [
@@ -19,6 +22,8 @@ const user ={
   role: "Software Engineer",
 };
 
+const Map = dynamic(()=> import('../components/Map'),{ssr:false});
+
 export default function Home() {
   const [toggle, setToggle] = useState(false);
   return (
@@ -30,6 +35,7 @@ export default function Home() {
       />
       <Hero />
       <ProfileIcon user={user}/>
+      <Map/>
     </>
   );
 }
