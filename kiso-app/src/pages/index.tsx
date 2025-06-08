@@ -1,9 +1,9 @@
-import Banner from "@/components/banner";
-import Hero from "../components/hero";
+import Banner from "@/components/Banner";
+import Hero from "../components/Hero";
 import { useState } from "react";
-import ToggleButton from "@/components/toggleButton";
-import MemberBenefits from "@/components/memberBenfits";
-import Form from "@/components/form";
+import ToggleButton from "@/components/ToggleButton";
+import MemberBenefits from "@/components/MemberBenfits";
+import Form from "@/components/Form";
 
 const loremArray = [
   "June 4: Kiso App Launches with Exciting Features!",

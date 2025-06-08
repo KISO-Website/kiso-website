@@ -1,6 +1,6 @@
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 
-const ContactSection: React.FC = () => {
+const Form: React.FC = () => {
   return (
     <section className="container mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
       {/* left: contact info */}
@@ -105,4 +105,4 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection;
+export default Form;
