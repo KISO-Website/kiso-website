@@ -2,6 +2,8 @@ import Banner from "@/components/banner";
 import Hero from "../components/hero";
 import { useState } from "react";
 import ToggleButton from "@/components/toggleButton";
+import MemberBenefits from "@/components/memberBenfits";
+import Form from "@/components/form";
 
 const loremArray = [
   "June 4: Kiso App Launches with Exciting Features!",
@@ -22,6 +24,8 @@ export default function Home() {
         onToggle={() => setToggle((prev) => !prev)}
       />
       <Hero />
+      <MemberBenefits />
+      <Form />
     </>
   );
 }
