@@ -5,7 +5,10 @@ import Hero from "@/components/Hero";
 import ProfileIcon from "@/components/ProfileIcon";
 import ToggleButton from "@/components/ToggleButton";
 import dynamic from "next/dynamic";
+import MemberBenefits from "@/components/MemberBenfits";
+import Form from "@/components/Form";
 import { useState } from "react";
+
 
 const loremArray = [
   "June 4: Kiso App Launches with Exciting Features!",
@@ -34,8 +37,11 @@ export default function Home() {
         onToggle={() => setToggle((prev) => !prev)}
       />
       <Hero />
+
       <ProfileIcon user={user}/>
       <Map/>
+      <MemberBenefits />
+      <Form />
     </>
   );
 }
