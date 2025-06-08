@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
