@@ -6,6 +6,7 @@ import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import { createSupabaseBrowserClient } from "@/utils/supabase/client";
 import { User } from "@supabase/supabase-js";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header: FC = () => {
   // 사이드바(open/close) 상태
@@ -96,6 +97,7 @@ const Header: FC = () => {
                   width={32}
                   height={32}
                 />
+                <LogoutButton/>
               </div>
             ) : (
               <LoginButton />
