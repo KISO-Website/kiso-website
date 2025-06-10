@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import MemberBenefits from "@/components/MemberBenfits";
 import Form from "@/components/Form";
 import { useState } from "react";
+import MonthlyEvents from "@/components/MontlyEvents";
 
 
 const loremArray = [
@@ -39,6 +40,9 @@ export default function Home() {
       <Hero />
 
       <ProfileIcon user={user}/>
+      <div className="my-12">
+        <MonthlyEvents/>
+      </div>
       <Map/>
       <MemberBenefits />
       <Form />
