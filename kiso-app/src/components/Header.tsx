@@ -1,13 +1,27 @@
 // components/Header.tsx
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import { createSupabaseBrowserClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
+import LoginButton from "./LoginButton";
 
 const Header: FC = () => {
   // 사이드바(open/close) 상태
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // 검색창(open/close) 상태
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // user state
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const supabase = createSupabaseBrowserClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      console.log(data.user);
+    });
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -53,23 +67,38 @@ const Header: FC = () => {
           </div>
 
           {/** ── 오른쪽 그룹: 검색 버튼 & 검색창 ── **/}
-          <div className="relative">
-            <button
-              aria-label={isSearchOpen ? "검색 닫기" : "검색 열기"}
-              onClick={toggleSearch}
-              className="text-white hover:text-gray-200 focus:outline-none"
-            >
-              <FaSearch className="text-2xl" />
-            </button>
-
-            {isSearchOpen && (
-              <div className="absolute top-full right-0 mt-2 z-40">
-                <input
-                  type="text"
-                  placeholder="Search…"
-                  className="w-64 px-3 py-1 rounded border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+          <div className="flex items-center gap-4">
+            {/* Search group */}
+            <div className="relative">
+              <button
+                aria-label={isSearchOpen ? "검색 닫기" : "검색 열기"}
+                onClick={toggleSearch}
+                className="text-white hover:text-gray-200 focus:outline-none"
+              >
+                <FaSearch className="text-2xl" />
+              </button>
+              {isSearchOpen && (
+                <div className="absolute top-full right-0 mt-2 z-40">
+                  <input
+                    type="text"
+                    placeholder="Search…"
+                    className="w-64 px-3 py-1 rounded border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  />
+                </div>
+              )}
+            </div>
+            {/* Login/Profile group */}
+            {user ? (
+              <div className="flex items-center gap-2">
+                <Image
+                  src={user.user_metadata.picture}
+                  alt="profile"
+                  width={32}
+                  height={32}
                 />
               </div>
+            ) : (
+              <LoginButton />
             )}
           </div>
         </div>
