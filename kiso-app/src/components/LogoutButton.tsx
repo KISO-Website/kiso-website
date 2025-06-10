@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 export default function LogoutButton() {
   const router = useRouter();
 
+  //when logout signout (delete tokens) and refresh
   const handleLogout = async () => {
     const supabase = createSupabaseBrowserClient();
     await supabase.auth.signOut();

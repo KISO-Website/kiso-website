@@ -5,8 +5,10 @@ type ToggleButtonProps = {
   onToggle: () => void;
 };
 
+// take in toggled state and toggle handler as prop
 export default function ToggleButton({ toggled, onToggle }: ToggleButtonProps) {
   return (
+    // place motion.div inside button for animated toggle button
     <button
       className="w-12 h-6 bg-gray-300 rounded-full flex items-center px-1 transition-all"
       style={{

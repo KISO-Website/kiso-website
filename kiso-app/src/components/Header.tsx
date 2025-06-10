@@ -89,6 +89,7 @@ const Header: FC = () => {
               )}
             </div>
             {/* Login/Profile group */}
+            {/* If logged in show user and logout button, else show login button */}
             {user ? (
               <div className="flex items-center gap-2">
                 <Image
