@@ -1,14 +1,11 @@
-'use client';
+"use client";
 
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
-import ProfileIcon from "@/components/ProfileIcon";
-import ToggleButton from "@/components/ToggleButton";
 import dynamic from "next/dynamic";
 import MemberBenefits from "@/components/MemberBenfits";
 import Form from "@/components/Form";
-import { useState } from "react";
-
+import ExecutiveBoard from "@/components/ExecutiveBoard";
 
 const loremArray = [
   "June 4: Kiso App Launches with Exciting Features!",
@@ -19,29 +16,45 @@ const loremArray = [
   "June 9: Kiso App Partners with Local Businesses Discover Exclusive Offers!",
 ];
 
-const user ={
-  img: "/images/hero3.jpg",
-  name: "John Doe",
-  role: "Software Engineer",
-};
+const users = [
+  {
+    img: "/images/hero3.jpg",
+    name: "John Doe",
+    role: "President",
+  },
+  {
+    img: "/images/hero3.jpg",
+    name: "Sally Doe",
+    role: "Vice President",
+  },
+  {
+    img: "/images/hero3.jpg",
+    name: "Jack Doe",
+    role: "Treasurer",
+  },
+  {
+    img: "/images/hero3.jpg",
+    name: "Jay Doe ",
+    role: "Event Coordinator",
+  },
+  {
+    img: "/images/hero3.jpg",
+    name: "Jack Doe",
+    role: "Avertising lead",
+  },
+];
 
-const Map = dynamic(()=> import('../components/Map'),{ssr:false});
+const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 export default function Home() {
-  const [toggle, setToggle] = useState(false);
   return (
     <>
       <Banner newsArray={loremArray} />
-      <ToggleButton
-        toggled={toggle}
-        onToggle={() => setToggle((prev) => !prev)}
-      />
       <Hero />
-
-      <ProfileIcon user={user}/>
-      <Map/>
       <MemberBenefits />
+      <Map />
       <Form />
+      <ExecutiveBoard users={users}/>
     </>
   );
 }
