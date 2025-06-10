@@ -2,6 +2,7 @@
 import { FC, useState } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Header: FC = () => {
   // 사이드바(open/close) 상태
@@ -30,7 +31,7 @@ const Header: FC = () => {
     <>
       {/** ─────────── 상단 헤더 ─────────── **/}
       {/* h-16: 높이를 64px로 고정, z-50: 오버레이 위에 보이도록 */}
-      <header className="w-full h-16 sticky top-0 z-50 bg-[#00abef]">
+      <header className="w-full h-16 sticky top-0 z-50 bg-[#00abef] dark:bg-slate-800">
         <div className="flex items-center justify-between h-full px-4">
           {/** ── 왼쪽 그룹: 햄버거/닫기 아이콘 + 로고 ── **/}
           <div className="flex items-center space-x-3">
@@ -53,7 +54,8 @@ const Header: FC = () => {
           </div>
 
           {/** ── 오른쪽 그룹: 검색 버튼 & 검색창 ── **/}
-          <div className="relative">
+          <div className="relative items-center space-x-4">
+            <DarkModeToggle />
             <button
               aria-label={isSearchOpen ? "검색 닫기" : "검색 열기"}
               onClick={toggleSearch}
